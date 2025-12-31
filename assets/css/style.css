@@ -1,6 +1,6 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-    /* Colors - ML/AI Inspired Theme */
+    /* Colors - ML/AI Inspired Theme (Dark) */
     --clr-bg-primary: #0a0f0f;
     --clr-bg-secondary: #0f1a1a;
     --clr-bg-card: #142424;
@@ -12,6 +12,7 @@
     --clr-accent-gradient: linear-gradient(135deg, #14b8a6 0%, #06b6d4 50%, #0ea5e9 100%);
     --clr-accent-gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
     --clr-border: rgba(20, 184, 166, 0.15);
+    --clr-header-bg: rgba(10, 15, 15, 0.9);
 
     /* Typography */
     --ff-primary: 'Inter', sans-serif;
@@ -56,6 +57,23 @@
     /* Layout */
     --header-height: 4rem;
     --container-max-width: 1200px;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --clr-bg-primary: #f8fafc;
+    --clr-bg-secondary: #e2e8f0;
+    --clr-bg-card: #ffffff;
+    --clr-text-primary: #0f172a;
+    --clr-text-secondary: #475569;
+    --clr-accent-primary: #0d9488;
+    --clr-accent-secondary: #14b8a6;
+    --clr-border: rgba(13, 148, 136, 0.2);
+    --clr-header-bg: rgba(248, 250, 252, 0.9);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 30px rgba(13, 148, 136, 0.2);
 }
 
 /* ===== CSS RESET ===== */
@@ -179,7 +197,7 @@ button {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(10, 10, 15, 0.9);
+    background: var(--clr-header-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--clr-border);
@@ -239,6 +257,45 @@ button {
 .nav__toggle,
 .nav__close {
     display: none;
+}
+
+.nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--border-radius-full);
+    color: var(--clr-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.theme-toggle:hover {
+    background: var(--clr-accent-primary);
+    border-color: var(--clr-accent-primary);
+    color: var(--clr-text-primary);
+}
+
+.theme-toggle__icon--moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle__icon--sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle__icon--moon {
+    display: block;
 }
 
 /* ===== HERO SECTION ===== */
