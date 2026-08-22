@@ -636,6 +636,54 @@ button {
     color: var(--clr-accent-secondary);
 }
 
+.project-card__badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semibold);
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-card__badge--developing {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+.project-card__badge--developing::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px #f59e0b;
+    animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact__content {
     text-align: center;
